@@ -1,0 +1,37 @@
+plugins {
+    id 'com.android.application'
+}
+
+android {
+    namespace 'com.netpulse.app'
+    compileSdk 34
+
+    defaultConfig {
+        applicationId "com.netpulse.app"
+        minSdk 24          // Android 7.0 - covers essentially all active devices
+        targetSdk 34
+        versionCode 1
+        versionName "1.0"
+    }
+
+    buildTypes {
+        release {
+            // Left unminified: this is a debug-signed personal build, and
+            // shrinking adds a failure mode with no real benefit here.
+            minifyEnabled false
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+}
+
+dependencies {
+    implementation 'androidx.appcompat:appcompat:1.7.0'
+    // WebViewAssetLoader serves the bundled web app over a real https origin
+    // instead of file://, which is what makes Web Workers and fetch() behave
+    // normally inside the WebView.
+    implementation 'androidx.webkit:webkit:1.11.0'
+}

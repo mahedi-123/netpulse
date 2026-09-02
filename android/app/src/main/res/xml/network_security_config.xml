@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Android blocks plain-HTTP traffic by default since API 28. "My PC" mode talks
+  to the NetPulse backend at http://<lan-ip>:4001, so cleartext has to be
+  permitted. Everything that leaves the local network (the NDT7 speed test,
+  Cloudflare metadata) uses https regardless.
+-->
+<network-security-config>
+    <base-config cleartextTrafficPermitted="true">
+        <trust-anchors>
+            <certificates src="system" />
+        </trust-anchors>
+    </base-config>
+</network-security-config>
