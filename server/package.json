@@ -1,0 +1,31 @@
+{
+  "name": "netpulse-server",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "NetPulse diagnostics backend - ICMP latency, DNS, traceroute, adapter info, and health scoring",
+  "scripts": {
+    "start": "tsx src/index.ts",
+    "dev": "tsx watch src/index.ts",
+    "build": "tsc",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "better-sqlite3": "^11.3.0",
+    "cors": "^2.8.5",
+    "express": "^4.19.2",
+    "ws": "^8.18.0"
+  },
+  "devDependencies": {
+    "@types/better-sqlite3": "^7.6.11",
+    "@types/cors": "^2.8.17",
+    "@types/express": "^4.17.21",
+    "@types/node": "^20.14.2",
+    "@types/ws": "^8.5.12",
+    "tsx": "^4.16.2",
+    "typescript": "^5.5.4"
+  },
+  "engines": {
+    "node": ">=18.18.0"
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "name": "netpulse",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Local ethernet/broadband health and speed diagnostic system, with a companion mobile app",
+  "scripts": {
+    "setup": "npm install --prefix server && npm install --prefix client && npm install --prefix mobile && npm install && npm run build:mobile",
+    "build:mobile": "npm run build --prefix mobile",
+    "start": "concurrently -n SERVER,CLIENT -c \"yellow,cyan\" \"npm run start --prefix server\" \"npm run dev --prefix client\"",
+    "typecheck": "npm run typecheck --prefix server && npm run typecheck --prefix client && npm run typecheck --prefix mobile"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  },
+  "engines": {
+    "node": ">=18.18.0"
+  }
+}
