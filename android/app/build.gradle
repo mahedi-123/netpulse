@@ -30,8 +30,14 @@ android {
 
 dependencies {
     implementation 'androidx.appcompat:appcompat:1.7.0'
-    // WebViewAssetLoader serves the bundled web app over a real https origin
-    // instead of file://, which is what makes Web Workers and fetch() behave
-    // normally inside the WebView.
     implementation 'androidx.webkit:webkit:1.11.0'
 }
+
+configurations.all {
+    resolutionStrategy.eachDependency { details ->
+        if (details.requested.group == "org.jetbrains.kotlin") {
+            details.useVersion "1.8.22"
+        }
+    }
+}
+
